@@ -1,0 +1,48 @@
+---
+- name: Create application directory
+  file:
+    path: "{{ web_root }}"
+    state: directory
+    mode: '0755'
+
+- name: Copy application files
+  copy:
+    src: index.html
+    dest: "{{ web_root }}/index.html"
+    mode: '0644'
+
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Create Nginx configuration from template
+  template:
+    src: nginx.conf.j2
+    dest: "/etc/nginx/sites-available/{{ site_name }}.conf"
+  notify: Restart Nginx
+
+- name: Enable custom site
+  file:
+    src: "/etc/nginx/sites-available/{{ site_name }}.conf"
+    dest: "/etc/nginx/sites-enabled/{{ site_name }}.conf"
+    state: link
+  notify: Restart Nginx
+
+- name: Remove default Nginx site
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  notify: Restart Nginx
+
+- name: Start and enable Nginx
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: Verify port 80 is listening
+  wait_for:
+    port: "{{ nginx_port }}"
+    timeout: 30
