@@ -1,29 +1,40 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-    <title>Wissen Store Login</title>
+    <title>WanderNest Login</title>
 </head>
 <body>
 
 <center>
 
-<h1>Wissen Store</h1>
+```
+<h1>✈️ WanderNest Travel Agency</h1>
 
-<h3>Secure Login</h3>
+<h3>Secure Access Portal</h3>
 
-<p>Username: admin</p>
+<p>Please enter your credentials to access the travel portal.</p>
 
-<input type="text" id="username" placeholder="Username">
+<hr width="40%">
+
+<input type="text"
+       id="username"
+       placeholder="Username">
 
 <br><br>
 
-<input type="password" id="password" placeholder="Password">
+<input type="password"
+       id="password"
+       placeholder="Password">
 
 <br><br>
 
 <button onclick="login()">Login</button>
 
-<p id="msg"></p>
+<br><br>
+
+<p id="message"></p>
+```
 
 </center>
 
@@ -43,14 +54,21 @@ async function login() {
     let actualPassword =
         (await response.text()).trim();
 
-    if(username === "admin" &&
-       password === actualPassword) {
+    if (username === "admin" &&
+        password === actualPassword) {
 
-        window.location.href = "index.html";
+        document.getElementById("message").innerHTML =
+        "Login Successful... Redirecting";
+
+        setTimeout(function() {
+
+            window.location.href = "index.html";
+
+        }, 1000);
 
     } else {
 
-        document.getElementById("msg").innerHTML =
+        document.getElementById("message").innerHTML =
         "Invalid Username or Password";
 
     }
