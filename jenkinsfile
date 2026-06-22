@@ -1,0 +1,5 @@
+stage('Generate Password') {
+    steps {
+        sh './generate_password.sh'
+    }
+}

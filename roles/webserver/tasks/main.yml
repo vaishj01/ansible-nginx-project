@@ -46,3 +46,13 @@
   wait_for:
     port: "{{ nginx_port }}"
     timeout: 30
+
+- name: Copy Login Page
+  copy:
+    src: login.html
+    dest: /opt/webapp/login.html
+
+- name: Copy Password File
+  copy:
+    src: password.txt
+    dest: /opt/webapp/password.txt
