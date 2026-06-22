@@ -1,46 +1,79 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-    <title>WanderNest Login</title>
+<meta charset="UTF-8">
+<title>WanderNest Login</title>
+
+<style>
+body{
+    background:#f4f8fb;
+    font-family:Arial,sans-serif;
+}
+
+.login-box{
+    width:350px;
+    margin:100px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+h1{
+    color:#0077b6;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    width:95%;
+    padding:10px;
+    background:#0077b6;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#005f8f;
+}
+
+#message{
+    color:red;
+}
+</style>
+
 </head>
+
 <body>
 
-<center>
+<div class="login-box">
 
-```
-<h1>✈️ WanderNest Travel Agency</h1>
+<h1>WanderNest Travel Agency</h1>
 
-<h3>Secure Access Portal</h3>
+<h3>Secure Login Portal</h3>
 
-<p>Please enter your credentials to access the travel portal.</p>
+<input type="text" id="username" placeholder="Username">
 
-<hr width="40%">
-
-<input type="text"
-       id="username"
-       placeholder="Username">
-
-<br><br>
-
-<input type="password"
-       id="password"
-       placeholder="Password">
-
-<br><br>
+<input type="password" id="password" placeholder="Password">
 
 <button onclick="login()">Login</button>
 
-<br><br>
-
 <p id="message"></p>
-```
 
-</center>
+</div>
 
 <script>
 
-async function login() {
+async function login(){
 
     let username =
         document.getElementById("username").value;
@@ -54,23 +87,15 @@ async function login() {
     let actualPassword =
         (await response.text()).trim();
 
-    if (username === "admin" &&
-        password === actualPassword) {
+    if(username==="admin" &&
+       password===actualPassword){
 
-        document.getElementById("message").innerHTML =
-        "Login Successful... Redirecting";
+        window.location.href="index.html";
 
-        setTimeout(function() {
-
-            window.location.href = "index.html";
-
-        }, 1000);
-
-    } else {
+    }else{
 
         document.getElementById("message").innerHTML =
         "Invalid Username or Password";
-
     }
 }
 
