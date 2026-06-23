@@ -1,5 +1,31 @@
-stage('Generate Password') {
-    steps {
-        sh './generate_password.sh'
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Generate Password') {
+            steps {
+                sh './generate_password.sh'
+            }
+        }
+
+        stage('Show Password') {
+            steps {
+                sh 'cat roles/webserver/files/password.txt'
+            }
+        }
+
+        stage('Deploy Website') {
+            steps {
+                sh 'ansible-playbook -i inventory/hosts.ini playbooks/site.yml'
+            }
+        }
+
+        stage('Verify Password On Server') {
+            steps {
+                sh 'ansible webservers -i inventory/hosts.ini -m shell -a "cat /opt/webapp/password.txt"'
+            }
+        }
+
     }
 }
