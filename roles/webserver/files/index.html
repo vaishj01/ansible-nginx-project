@@ -1,233 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>WanderNest Travel Agency</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderNest</title>
 
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#f4f8fb;
-}
-
-/* Navbar */
-
-nav{
-    background:#0077b6;
-    color:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 50px;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:bold;
-}
-
-nav ul{
-    display:flex;
-    list-style:none;
-}
-
-nav ul li{
-    margin-left:25px;
-}
-
-nav ul li a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-nav ul li a:hover{
-    color:#ffd166;
-}
-
-/* Hero Section */
-
-.header{
-    text-align:center;
-    background:#0096c7;
-    color:white;
-    padding:60px;
-}
-
-.header h1{
-    font-size:45px;
-}
-
-.header p{
-    margin-top:15px;
-    font-size:18px;
-}
-
-/* Cards */
-
-.container{
-    width:85%;
-    margin:30px auto;
-}
-
-.card{
-    background:white;
-    padding:25px;
-    margin-bottom:25px;
-    border-radius:10px;
-    box-shadow:0px 2px 8px lightgray;
-}
-
-.card h2{
-    color:#0077b6;
-    margin-bottom:15px;
-}
-
-.card ul{
-    padding-left:20px;
-}
-
-.card li{
-    margin-bottom:10px;
-}
-
-/* Contact */
-
-.contact p{
-    margin-bottom:10px;
-}
-
-/* Footer */
-
-.footer{
-    background:#0077b6;
-    color:white;
-    text-align:center;
-    padding:15px;
-    margin-top:30px;
-}
-
-</style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<nav>
+    <nav class="navbar">
 
-<div class="logo">
-WanderNest
-</div>
+        <div class="logo">
+            WanderNest
+        </div>
 
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#destinations">Destinations</a></li>
-<li><a href="#packages">Packages</a></li>
-<li><a href="#reviews">Reviews</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+        <ul class="nav-links">
 
-</nav>
+            <li><a href="#">Home</a></li>
 
-<div class="header" id="home">
+            <li><a href="#">Destinations</a></li>
 
-<h1>WanderNest Travel Agency</h1>
+            <li><a href="#">About</a></li>
 
-<p>Your Journey Begins Here</p>
+            <li><a href="#">Contact</a></li>
 
-<p>Explore Amazing Destinations Around The World</p>
+            <li>
+                <a href="login.html" class="login-btn">
+                    Login
+                </a>
+            </li>
 
-</div>
+        </ul>
 
-<div class="container">
+    </nav>
+    <section class="hero">
 
-<div class="card" id="destinations">
+    <div class="hero-content">
 
-<h2>Popular Destinations</h2>
+        <h1>Explore the World with WanderNest</h1>
 
-<ul>
-<li>Paris, France</li>
-<li>Dubai, UAE</li>
-<li>Bali, Indonesia</li>
-<li>Switzerland</li>
-<li>Singapore</li>
-<li>Maldives</li>
-</ul>
+        <p>
+            Discover breathtaking destinations, unforgettable adventures,
+            and travel experiences that create memories for a lifetime.
+        </p>
 
-</div>
+        <div class="hero-buttons">
 
-<div class="card" id="packages">
+            <a href="#" class="explore-btn">
+                Explore Now
+            </a>
 
-<h2>Tour Packages</h2>
+            <a href="login.html" class="login-hero-btn">
+                Login
+            </a>
 
-<ul>
-<li>European Explorer Package - ₹75,000</li>
-<li>Dubai Luxury Tour - ₹60,000</li>
-<li>Bali Beach Vacation - ₹55,000</li>
-<li>Swiss Adventure Tour - ₹90,000</li>
-<li>Maldives Honeymoon Package - ₹1,10,000</li>
-</ul>
+        </div>
 
-</div>
+    </div>
 
-<div class="card" id="reviews">
-
-<h2>Customer Reviews</h2>
-
-<p>★★★★★ Amazing travel experience and excellent planning.</p>
-
-<br>
-
-<p>★★★★★ Best travel agency for international tours.</p>
-
-<br>
-
-<p>★★★★★ Affordable packages and professional support.</p>
-
-</div>
-
-<div class="card">
-
-<h2>About Us</h2>
-
-<p>
-WanderNest Travel Agency helps travelers explore the world through
-customized tour packages, visa assistance, hotel bookings,
-and unforgettable travel experiences.
-</p>
-
-</div>
-
-<div class="card contact" id="contact">
-
-<h2>Contact Us</h2>
-
-<p>Email : contact@wandernest.com</p>
-
-<p>Phone : +91 9876543210</p>
-
-<p>Location : Bangalore, India</p>
-
-</div>
-
-</div>
-
-<div class="footer">
-
-<p>Powered by Jenkins | Ansible | Nginx</p>
-
-</div>
+</section>
 
 </body>
 </html>
