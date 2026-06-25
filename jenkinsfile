@@ -3,6 +3,12 @@ pipeline {
 
     stages {
 
+        stage('Clone Repository') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Generate Password') {
             steps {
                 sh './generate_password.sh'
@@ -11,21 +17,44 @@ pipeline {
 
         stage('Show Password') {
             steps {
+                sh 'echo "Generated Password:"'
                 sh 'cat roles/webserver/files/password.txt'
             }
         }
 
-        stage('Deploy Website') {
+        stage('Build Docker Image') {
             steps {
-                sh 'ansible-playbook -i inventory/hosts.ini playbooks/site.yml'
+                sh 'docker build -t wandernest-app:latest .'
             }
         }
 
-        stage('Verify Password On Server') {
+        stage('Remove Old Container') {
             steps {
-                sh 'ansible webservers -i inventory/hosts.ini -m shell -a "cat /opt/webapp/password.txt"'
+                sh 'docker rm -f wandernest || true'
             }
         }
 
+        stage('Run Docker Container') {
+            steps {
+                sh 'docker run -d --name wandernest -p 9090:80 wandernest-app:latest'
+            }
+        }
+
+        stage('Verify Deployment') {
+            steps {
+                sh 'docker ps'
+                sh 'curl -I http://localhost:9090'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Docker Deployment Successful!"
+        }
+
+        failure {
+            echo "Deployment Failed!"
+        }
     }
 }
