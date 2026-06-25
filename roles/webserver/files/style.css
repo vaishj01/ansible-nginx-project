@@ -525,3 +525,81 @@ background:#1d4ed8;
     margin-bottom:15px;
 
 }
+
+/* Statistics */
+
+.stats{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+    padding:70px 10%;
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.stat-box{
+
+    text-align:center;
+
+}
+
+.stat-box h2{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+
+}
+
+.stat-box p{
+
+    font-size:18px;
+
+}
+
+/* Footer */
+
+footer{
+
+    background:#0f172a;
+
+    color:white;
+
+    text-align:center;
+
+    padding:50px 20px;
+
+}
+
+footer h2{
+
+    margin-bottom:15px;
+
+    color:#60a5fa;
+
+}
+
+footer p{
+
+    color:#cbd5e1;
+
+    margin-bottom:10px;
+
+}
+
+.copyright{
+
+    margin-top:20px;
+
+    font-size:14px;
+
+}
