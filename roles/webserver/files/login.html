@@ -1,103 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>WanderNest Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderNest Login</title>
 
-<style>
-body{
-    background:#f4f8fb;
-    font-family:Arial,sans-serif;
-}
-
-.login-box{
-    width:350px;
-    margin:100px auto;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
-    text-align:center;
-}
-
-h1{
-    color:#0077b6;
-}
-
-input{
-    width:90%;
-    padding:10px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:5px;
-}
-
-button{
-    width:95%;
-    padding:10px;
-    background:#0077b6;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#005f8f;
-}
-
-#message{
-    color:red;
-}
-</style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="login-box">
+    <!-- Navbar -->
 
-<h1>WanderNest Travel Agency</h1>
+    <nav class="navbar">
 
-<input type="text" id="username" placeholder="Username">
+        <div class="logo">
+            WanderNest
+        </div>
 
-<input type="password" id="password" placeholder="Password">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+        </ul>
 
-<button onclick="login()">Login</button>
+    </nav>
 
-<p id="message"></p>
+    <!-- Login Section -->
 
-</div>
+    <section class="login-page">
 
-<script>
+        <div class="login-box">
 
-async function login(){
+            <h1>Welcome Back ✈️</h1>
 
-    let username =
-        document.getElementById("username").value;
+            <p class="login-subtitle">
+                Sign in to continue your journey.
+            </p>
 
-    let password =
-        document.getElementById("password").value;
+            <input
+                type="text"
+                id="username"
+                placeholder="Username">
 
-    let response =
-        await fetch("password.txt");
+            <input
+                type="password"
+                id="password"
+                placeholder="Password">
 
-    let actualPassword =
-        (await response.text()).trim();
+            <div class="remember-row">
 
-    if(username==="admin" &&
-       password===actualPassword){
+                <label>
 
-        window.location.href="index.html";
+                    <input type="checkbox">
 
-    }else{
+                    Remember Me
 
-        document.getElementById("message").innerHTML =
-        "Invalid Username or Password";
-    }
-}
+                </label>
 
-</script>
+            </div>
+
+            <button onclick="login()">
+
+                Sign In
+
+            </button>
+
+            <p id="message"></p>
+
+            <a href="index.html" class="back-home">
+
+                ← Back to Home
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <script>
+
+        async function login() {
+
+            let username =
+                document.getElementById("username").value;
+
+            let password =
+                document.getElementById("password").value;
+
+            let response =
+                await fetch("password.txt");
+
+            let actualPassword =
+                (await response.text()).trim();
+
+            if (username === "admin" &&
+                password === actualPassword) {
+
+                window.location.href = "index.html";
+
+            } else {
+
+                document.getElementById("message").innerHTML =
+                    "❌ Invalid Username or Password";
+
+            }
+
+        }
+
+    </script>
 
 </body>
+
 </html>
