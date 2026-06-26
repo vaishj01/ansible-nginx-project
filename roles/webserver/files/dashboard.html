@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>WanderNest Dashboard</title>
+    <title>Dashboard | WanderNest</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -15,71 +15,148 @@
 
 <body>
 
-<nav class="navbar">
+    <!-- Navbar -->
 
-    <div class="logo">
-        WanderNest
-    </div>
+    <nav class="navbar">
 
-    <ul class="nav-links">
+        <div class="logo">
+            WanderNest
+        </div>
 
-        <li><a href="index.html">Home</a></li>
+        <ul class="nav-links">
 
-        <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="index.html">Home</a></li>
 
-        <li><a href="login.html">Login</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
 
-    </ul>
+            <li><a href="contact.html">Contact</a></li>
 
-</nav>
+        </ul>
 
-<section class="dashboard">
+    </nav>
 
-    <div class="dashboard-header">
+    <!-- Dashboard Hero -->
 
-        <h1>Welcome Admin 👋</h1>
+    <section class="dashboard-hero">
 
-        <p>Your travel management dashboard</p>
+        <div class="dashboard-content">
 
-    </div>
+            <h1>Welcome Back, Admin 👋</h1>
 
-    <div class="dashboard-grid">
+            <p>
+                Your next adventure is waiting.
+                Manage your bookings and explore amazing destinations.
+            </p>
 
-        <div class="dashboard-card">
-
-            <h2>🚀 Deployment Status</h2>
-
-            <p>Application deployed successfully.</p>
+            <a href="destinations.html" class="explore-btn">
+                Explore Destinations
+            </a>
 
         </div>
 
-        <div class="dashboard-card">
+    </section>
 
-            <h2>🐳 Docker</h2>
+    <!-- Dashboard Cards -->
 
-            <p>Container is running successfully.</p>
+    <section class="dashboard-container">
 
-        </div>
-
-        <div class="dashboard-card">
-
-            <h2>⚙ Jenkins</h2>
-
-            <p>Pipeline executed successfully.</p>
-
-        </div>
+        <!-- Booking -->
 
         <div class="dashboard-card">
 
-            <h2>🌐 Application</h2>
+            <h2>📍 Your Next Trip</h2>
 
-            <p>WanderNest Travel Portal</p>
+            <h3>Goa</h3>
+
+            <p>4 Days • 3 Nights</p>
+
+            <span class="status confirmed">
+                Confirmed
+            </span>
 
         </div>
 
-    </div>
+        <!-- Stats -->
 
-    <div class="logout-section">
+        <div class="dashboard-card">
+
+            <h2>📊 Travel Stats</h2>
+
+            <div class="stats-box">
+
+                <div>
+
+                    <h3>12</h3>
+
+                    <p>Bookings</p>
+
+                </div>
+
+                <div>
+
+                    <h3>5</h3>
+
+                    <p>Countries</p>
+
+                </div>
+
+                <div>
+
+                    <h3>2400</h3>
+
+                    <p>Reward Points</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- System -->
+
+        <div class="dashboard-card">
+
+            <h2>🖥 System Status</h2>
+
+            <ul class="status-list">
+
+                <li>🟢 Website Live</li>
+
+                <li>🟢 Docker Running</li>
+
+                <li>🟢 Jenkins Healthy</li>
+
+                <li>🟢 Deployment Successful</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Activity -->
+
+        <div class="dashboard-card">
+
+            <h2>📝 Recent Activity</h2>
+
+            <ul class="activity-list">
+
+                <li>✔ Logged In</li>
+
+                <li>✔ Viewed Goa Package</li>
+
+                <li>✔ Login Successful</li>
+
+                <li>✔ Website Live</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+    <!-- Logout -->
+
+    <div class="logout-container">
 
         <a href="index.html" class="logout-btn">
 
@@ -88,8 +165,6 @@
         </a>
 
     </div>
-
-</section>
 
 </body>
 
