@@ -43,10 +43,18 @@
                 id="username"
                 placeholder="Username">
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Password">
+            <div class="password-container">
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password">
+
+    <span id="togglePassword" onclick="togglePassword()">
+        👁️
+    </span>
+
+</div>
 
             <div class="remember-row">
 
@@ -79,6 +87,23 @@
     </section>
 
     <script>
+
+        function togglePassword(){
+
+    const password =
+        document.getElementById("password");
+
+    if(password.type === "password"){
+
+        password.type = "text";
+
+    }else{
+
+        password.type = "password";
+
+    }
+
+}
 
         async function login() {
 

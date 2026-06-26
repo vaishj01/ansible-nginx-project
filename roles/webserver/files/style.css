@@ -795,3 +795,45 @@ margin-bottom:10px;
     margin-top:15px;
 
 }
+
+/* Password Field */
+
+.password-container{
+
+    position:relative;
+
+    margin-bottom:18px;
+
+}
+
+.password-container input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+}
+
+#togglePassword{
+
+    position:absolute;
+
+    right:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    user-select:none;
+
+}
