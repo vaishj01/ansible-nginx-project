@@ -105,34 +105,59 @@
 
 }
 
-        async function login() {
+        async function login(){
 
-            let username =
-                document.getElementById("username").value;
+    const username =
+        document.getElementById("username").value.trim();
 
-            let password =
-                document.getElementById("password").value;
+    const password =
+        document.getElementById("password").value.trim();
 
-            let response =
-                await fetch("password.txt");
+    const message =
+        document.getElementById("message");
 
-            let actualPassword =
-                (await response.text()).trim();
+    message.innerHTML = "";
 
-            if (username === "admin" &&
-                password === actualPassword) {
+    const response = await fetch("password.txt");
 
-                window.location.href = "index.html";
+    const actualPassword =
+        (await response.text()).trim();
 
-            } else {
+    if(username === ""){
 
-                document.getElementById("message").innerHTML =
-                    "❌ Invalid Username or Password";
+        message.innerHTML =
+        "⚠ Please enter your username.";
 
-            }
+        return;
+    }
 
-        }
+    if(password === ""){
 
+        message.innerHTML =
+        "⚠ Please enter your password.";
+
+        return;
+    }
+
+    if(username !== "admin"){
+
+        message.innerHTML =
+        "❌ Username not found.";
+
+        return;
+    }
+
+    if(password !== actualPassword){
+
+        message.innerHTML =
+        "❌ Incorrect password.";
+
+        return;
+    }
+
+    window.location.href = "dashboard.html";
+
+}
     </script>
 
 </body>
