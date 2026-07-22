@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: wandernest-config
+  namespace: wandernest
+
+data:
+  APP_NAME: "WanderNest"
+  ENVIRONMENT: "Production"
+  COMPANY: "DevOps Team"

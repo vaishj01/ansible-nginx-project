@@ -1,4 +1,23 @@
-.terraform/
-*.tfstate
-*.tfstate.*
-.terraform.lock.hcl
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform.lock.hcl
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Temporary files
+*.tmp

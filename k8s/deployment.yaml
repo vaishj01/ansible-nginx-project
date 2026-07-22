@@ -4,6 +4,8 @@ kind: Deployment
 metadata:
   name: wandernest-deployment
   namespace: wandernest
+  labels:
+    app: wandernest
 
 spec:
   replicas: 2
@@ -21,5 +23,64 @@ spec:
       containers:
       - name: wandernest-container
         image: 747582940940.dkr.ecr.ap-south-1.amazonaws.com/wandernest:latest
+
+        imagePullPolicy: Always
+
         ports:
         - containerPort: 80
+        env:
+        - name: APP_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: wandernest-config
+              key: APP_NAME
+
+        - name: ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: wandernest-config
+              key: ENVIRONMENT
+
+        - name: COMPANY
+          valueFrom:
+            configMapKeyRef:
+              name: wandernest-config
+              key: COMPANY
+
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: wandernest-secret
+              key: DB_USERNAME
+
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: wandernest-secret
+              key: DB_PASSWORD
+
+
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
+
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+
+          initialDelaySeconds: 5
+          periodSeconds: 10
+
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+
+          initialDelaySeconds: 15
+          periodSeconds: 20
