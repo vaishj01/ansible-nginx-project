@@ -1,4 +1,3 @@
-roles/webserver/files/password.txt
 .git
 .gitignore
 infra
