@@ -5,7 +5,7 @@ pipeline {
         AWS_REGION       = 'ap-south-1'
         AWS_ACCOUNT_ID   = '512902043128'
         ECR_REPOSITORY   = 'wandernest'
-        IMAGE_TAG        = 'latest'
+        IMAGE_TAG        = "${env.BUILD_NUMBER}"
         ECR_URI          = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}"
         K8S_NAMESPACE    = 'wandernest'
         K8S_DEPLOYMENT   = 'wandernest-deployment'
@@ -62,6 +62,8 @@ pipeline {
                 sh '''
                 docker tag wandernest-app:${IMAGE_TAG} \
                 $ECR_URI:${IMAGE_TAG}
+                docker tag wandernest-app:${IMAGE_TAG} \
+                $ECR_URI:latest
                 '''
             }
         }
@@ -72,7 +74,10 @@ pipeline {
                     $class: 'AmazonWebServicesCredentialsBinding',
                     credentialsId: 'aws-jenkins-creds'
                 ]]) {
-                    sh 'docker push $ECR_URI:${IMAGE_TAG}'
+                    sh '''
+                    docker push $ECR_URI:${IMAGE_TAG}
+                    docker push $ECR_URI:latest
+                    '''
                 }
             }
         }
