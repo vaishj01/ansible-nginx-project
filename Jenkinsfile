@@ -22,7 +22,12 @@ pipeline {
 
         stage('Generate Password') {
             steps {
-                sh './generate_password.sh'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-jenkins-creds'
+                ]]) {
+                    sh './generate_password.sh'
+                }
             }
         }
 

@@ -15,4 +15,8 @@ resource "aws_secretsmanager_secret_version" "this" {
     username = "admin"
     password = "ChangeMe123!"
   })
+
+  lifecycle {
+    ignore_changes = [secret_string]
+  }
 }
