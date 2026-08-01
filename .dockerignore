@@ -1,0 +1,12 @@
+roles/webserver/files/password.txt
+.git
+.gitignore
+infra
+inventory
+k8s
+playbooks
+roles/webserver/tasks
+README.md
+*.tfstate
+*.tfstate.backup
+.terraform

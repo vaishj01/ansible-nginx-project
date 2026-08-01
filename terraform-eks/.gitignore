@@ -1,4 +1,0 @@
-.terraform/
-*.tfstate
-*.tfstate.*
-get_helm.sh
