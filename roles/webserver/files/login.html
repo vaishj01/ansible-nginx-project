@@ -38,23 +38,17 @@
                 Sign in to continue your journey.
             </p>
 
-            <input
-                type="text"
-                id="username"
-                placeholder="Username">
+            <input type="text" id="username" placeholder="Username">
 
             <div class="password-container">
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Password">
+                <input type="password" id="password" placeholder="Password">
 
-    <span id="togglePassword" onclick="togglePassword()">
-        👁️
-    </span>
+                <span id="togglePassword" onclick="togglePassword()">
+                    👁️
+                </span>
 
-</div>
+            </div>
 
             <div class="remember-row">
 
@@ -88,76 +82,76 @@
 
     <script>
 
-        function togglePassword(){
+        function togglePassword() {
 
-    const password =
-        document.getElementById("password");
+            const password =
+                document.getElementById("password");
 
-    if(password.type === "password"){
+            if (password.type === "password") {
 
-        password.type = "text";
+                password.type = "text";
 
-    }else{
+            } else {
 
-        password.type = "password";
+                password.type = "password";
 
-    }
+            }
 
-}
+        }
 
-        async function login(){
+        async function login() {
 
-    const username =
-        document.getElementById("username").value.trim();
+            const username =
+                document.getElementById("username").value.trim();
 
-    const password =
-        document.getElementById("password").value.trim();
+            const password =
+                document.getElementById("password").value.trim();
 
-    const message =
-        document.getElementById("message");
+            const message =
+                document.getElementById("message");
 
-    message.innerHTML = "";
+            message.innerHTML = "";
 
-    const response = await fetch("password.txt");
+            const response = await fetch("password.txt?t=" + new Date().getTime());
 
-    const actualPassword =
-        (await response.text()).trim();
+            const actualPassword =
+                (await response.text()).trim();
 
-    if(username === ""){
+            if (username === "") {
 
-        message.innerHTML =
-        "⚠ Please enter your username.";
+                message.innerHTML =
+                    "⚠ Please enter your username.";
 
-        return;
-    }
+                return;
+            }
 
-    if(password === ""){
+            if (password === "") {
 
-        message.innerHTML =
-        "⚠ Please enter your password.";
+                message.innerHTML =
+                    "⚠ Please enter your password.";
 
-        return;
-    }
+                return;
+            }
 
-    if(username !== "admin"){
+            if (username !== "admin") {
 
-        message.innerHTML =
-        "❌ Username not found.";
+                message.innerHTML =
+                    "❌ Username not found.";
 
-        return;
-    }
+                return;
+            }
 
-    if(password !== actualPassword){
+            if (password !== actualPassword) {
 
-        message.innerHTML =
-        "❌ Incorrect password.";
+                message.innerHTML =
+                    "❌ Incorrect password.";
 
-        return;
-    }
+                return;
+            }
 
-    window.location.href = "dashboard.html";
+            window.location.href = "dashboard.html";
 
-}
+        }
     </script>
 
 </body>
